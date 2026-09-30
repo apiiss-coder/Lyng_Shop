@@ -1,0 +1,1152 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lyng_Shop - Belanja Online</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff7fa;
+            color: #333;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #ff4f9a, #ff79b5);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(255, 79, 154, 0.3);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #fff0f6;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffe1ed;
+        }
+
+        .cart {
+            background: white;
+            color: #ff4f9a;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 8%;
+            background: linear-gradient(
+                120deg,
+                #ffe3ef,
+                #fff,
+                #fff4e6
+            );
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #e93683;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h2 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff4f9a;
+            color: white;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #db2d76;
+            transform: translateY(-2px);
+        }
+
+        .hero-icon {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #ffb4d3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 130px;
+            box-shadow: 0 15px 35px rgba(255, 79, 154, 0.2);
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            padding: 25px 8%;
+            background: white;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ffd0e1;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-box input:focus {
+            border-color: #ff4f9a;
+        }
+
+        /* ================= CATEGORY ================= */
+
+        .section {
+            padding: 45px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #e93683;
+            font-size: 30px;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category:hover {
+            transform: translateY(-7px);
+            border-color: #ff9fc5;
+        }
+
+        .category-icon {
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            color: #444;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(255,79,154,0.2);
+        }
+
+        .product-image {
+            height: 180px;
+            background: #ffe1ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .category-name {
+            color: #ff4f9a;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .price {
+            color: #e93683;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .add-cart {
+            width: 100%;
+            border: none;
+            background: #ff4f9a;
+            color: white;
+            padding: 11px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-cart:hover {
+            background: #db2d76;
+        }
+
+        /* ================= CART ================= */
+
+        .cart-box {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 360px;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+            padding: 25px;
+            transition: 0.4s;
+            overflow-y: auto;
+        }
+
+        .cart-box.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ffe1ed;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .close-cart {
+            border: none;
+            background: #ffe1ed;
+            color: #e93683;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info {
+            max-width: 180px;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .remove {
+            background: #ffebf2;
+            color: #e93683;
+            border: none;
+            padding: 6px 9px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #e93683;
+        }
+
+        .checkout {
+            width: 100%;
+            border: none;
+            background: #333;
+            color: white;
+            padding: 14px;
+            margin-top: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .checkout:hover {
+            background: #ff4f9a;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #3d3036;
+            color: white;
+            padding: 40px 8%;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: #ff79b5;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #ddd;
+            line-height: 1.7;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #5d5056;
+            color: #bbb;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-icon {
+                width: 220px;
+                height: 220px;
+                font-size: 90px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-box {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            🌸 Lyng_<span>Shop</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#kategori">Kategori</a>
+            <a href="#produk">Produk</a>
+        </nav>
+
+        <button class="cart" onclick="openCart()">
+            🛒 Keranjang (<span id="cart-count">0</span>)
+        </button>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>Lyng_Shop</h1>
+
+            <h2>Belanja Mudah, Harga Bersahabat 💗</h2>
+
+            <p>
+                Selamat datang di Lyng_Shop!
+                Temukan berbagai kebutuhan sehari-hari mulai dari
+                sembako, bumbu dapur, hingga jajanan favorit.
+            </p>
+
+            <a href="#produk" class="btn">
+                Belanja Sekarang
+            </a>
+
+        </div>
+
+        <div class="hero-icon">
+            🛍️
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Cari produk di Lyng_Shop..."
+            onkeyup="searchProduct()"
+        >
+
+    </div>
+
+
+    <!-- CATEGORY -->
+    <section class="section" id="kategori">
+
+        <div class="section-title">
+
+            <h2>Kategori Produk</h2>
+
+            <p>
+                Pilih kategori kebutuhanmu
+            </p>
+
+        </div>
+
+        <div class="categories">
+
+            <div class="category" onclick="filterCategory('Sembako')">
+                <div class="category-icon">🍚</div>
+                <h3>Sembako</h3>
+                <p>Kebutuhan pokok sehari-hari</p>
+            </div>
+
+            <div class="category" onclick="filterCategory('Bumbu Dapur')">
+                <div class="category-icon">🌶️</div>
+                <h3>Bumbu Dapur</h3>
+                <p>Bumbu untuk masakan lezat</p>
+            </div>
+
+            <div class="category" onclick="filterCategory('Jajanan')">
+                <div class="category-icon">🍪</div>
+                <h3>Jajanan</h3>
+                <p>Camilan enak untuk keluarga</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section" id="produk">
+
+        <div class="section-title">
+
+            <h2>Produk Pilihan</h2>
+
+            <p>
+                Produk favorit di Lyng_Shop
+            </p>
+
+        </div>
+
+
+        <div class="products" id="productList">
+
+            <!-- PRODUK 1 -->
+            <div class="product" data-category="Sembako">
+
+                <div class="product-image">
+                    🍚
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        SEMBAKO
+                    </span>
+
+                    <h3>Beras Premium 5 Kg</h3>
+
+                    <div class="price">
+                        Rp75.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Beras Premium 5 Kg', 75000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 2 -->
+            <div class="product" data-category="Sembako">
+
+                <div class="product-image">
+                    🛢️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        SEMBAKO
+                    </span>
+
+                    <h3>Minyak Goreng 1 Liter</h3>
+
+                    <div class="price">
+                        Rp18.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Minyak Goreng 1 Liter', 18000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 3 -->
+            <div class="product" data-category="Sembako">
+
+                <div class="product-image">
+                    🍬
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        SEMBAKO
+                    </span>
+
+                    <h3>Gula Pasir 1 Kg</h3>
+
+                    <div class="price">
+                        Rp17.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Gula Pasir 1 Kg', 17000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 4 -->
+            <div class="product" data-category="Bumbu Dapur">
+
+                <div class="product-image">
+                    🧂
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        BUMBU DAPUR
+                    </span>
+
+                    <h3>Garam Dapur 500g</h3>
+
+                    <div class="price">
+                        Rp5.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Garam Dapur 500g', 5000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 5 -->
+            <div class="product" data-category="Bumbu Dapur">
+
+                <div class="product-image">
+                    🌶️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        BUMBU DAPUR
+                    </span>
+
+                    <h3>Cabai Merah 250g</h3>
+
+                    <div class="price">
+                        Rp12.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Cabai Merah 250g', 12000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 6 -->
+            <div class="product" data-category="Bumbu Dapur">
+
+                <div class="product-image">
+                    🧄
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        BUMBU DAPUR
+                    </span>
+
+                    <h3>Bawang Putih 250g</h3>
+
+                    <div class="price">
+                        Rp10.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Bawang Putih 250g', 10000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 7 -->
+            <div class="product" data-category="Jajanan">
+
+                <div class="product-image">
+                    🍪
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        JAJANAN
+                    </span>
+
+                    <h3>Biskuit Cokelat</h3>
+
+                    <div class="price">
+                        Rp8.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Biskuit Cokelat', 8000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUK 8 -->
+            <div class="product" data-category="Jajanan">
+
+                <div class="product-image">
+                    🍿
+                </div>
+
+                <div class="product-info">
+
+                    <span class="category-name">
+                        JAJANAN
+                    </span>
+
+                    <h3>Keripik Kentang</h3>
+
+                    <div class="price">
+                        Rp10.000
+                    </div>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Keripik Kentang', 10000)"
+                    >
+                        + Tambah Keranjang
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+    <div class="cart-box" id="cartBox">
+
+        <div class="cart-header">
+
+            <h2>🛒 Keranjang</h2>
+
+            <button
+                class="close-cart"
+                onclick="closeCart()"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <div id="cartItems">
+
+            <p>Keranjang masih kosong.</p>
+
+        </div>
+
+        <div class="cart-total">
+
+            Total:
+            <span id="cartTotal">
+                Rp0
+            </span>
+
+        </div>
+
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            💳 Checkout
+        </button>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>🌸 Lyng_Shop</h3>
+
+                <p>
+                    Toko online yang menyediakan berbagai
+                    kebutuhan sehari-hari dengan harga
+                    bersahabat.
+                </p>
+            </div>
+
+            <div>
+                <h3>Kategori</h3>
+
+                <p>🍚 Sembako</p>
+                <p>🌶️ Bumbu Dapur</p>
+                <p>🍪 Jajanan</p>
+            </div>
+
+            <div>
+                <h3>Hubungi Kami</h3>
+
+                <p>📱 WhatsApp: 08xxxxxxxxxx</p>
+                <p>📧 Email: lyngshop@gmail.com</p>
+                <p>📍 Indonesia</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 Lyng_Shop. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let cart = [];
+
+        /* ================= ADD TO CART ================= */
+
+        function addToCart(name, price) {
+
+            const existingProduct = cart.find(
+                item => item.name === name
+            );
+
+            if (existingProduct) {
+
+                existingProduct.quantity++;
+
+            } else {
+
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+
+            }
+
+            updateCart();
+
+            alert(name + " berhasil ditambahkan ke keranjang! 💗");
+
+        }
+
+
+        /* ================= UPDATE CART ================= */
+
+        function updateCart() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const cartCount =
+                document.getElementById("cart-count");
+
+            const cartTotal =
+                document.getElementById("cartTotal");
+
+
+            cartItems.innerHTML = "";
+
+            let total = 0;
+            let count = 0;
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    "<p>Keranjang masih kosong.</p>";
+
+            }
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price * item.quantity;
+
+                count += item.quantity;
+
+
+                const div =
+                    document.createElement("div");
+
+                div.classList.add("cart-item");
+
+                div.innerHTML = `
+
+                    <div class="cart-item-info">
+
+                        <h4>${item.name}</h4>
+
+                        <p>
+                            ${item.quantity} x
+                            Rp${item.price.toLocaleString("id-ID")}
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="remove"
+                        onclick="removeFromCart(${index})"
+                    >
+                        Hapus
+                    </button>
+
+                `;
+
+                cartItems.appendChild(div);
+
+            });
+
+
+            cartCount.textContent = count;
+
+            cartTotal.textContent =
+                "Rp" + total.toLocaleString("id-ID");
+
+        }
+
+
+        /* ================= REMOVE ================= */
+
+        function removeFromCart(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        }
+
+
+        /* ================= OPEN CART ================= */
+
+        function openCart() {
+
+            document
+                .getElementById("cartBox")
+                .classList.add("active");
+
+        }
+
+
+        /* ================= CLOSE CART ================= */
+
+        function closeCart() {
+
+            document
+                .getElementById("cartBox")
+                .classList.remove("active");
+
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        function searchProduct() {
+
+            const keyword =
+                document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            const products =
+                document.querySelectorAll(".product");
+
+
+            products.forEach(product => {
+
+                const text =
+                    product.innerText.toLowerCase();
+
+                if (text.includes(keyword)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* ================= CATEGORY FILTER ================= */
+
+        function filterCategory(category) {
+
+            const products =
+                document.querySelectorAll(".product");
+
+
+            products.forEach(product => {
+
+                if (
+                    product.dataset.category === category
+                ) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+
+            document
+                .getElementById("produk")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        /* ================= CHECKOUT ================= */
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Keranjang kamu masih kosong! 🛒"
+                );
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+            cart.forEach(item => {
+
+                total +=
+                    item.price * item.quantity;
+
+            });
+
+
+            alert(
+                "Terima kasih sudah berbelanja di Lyng_Shop! 💗\n\n" +
+                "Total pembayaran: Rp" +
+                total.toLocaleString("id-ID")
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
